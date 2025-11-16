@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <h2>Add Two Numbers</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <p>Sum: <span id="result"></span></p>
+
+    <script>
+        function calculateSum() {
+            // Get the values from the input fields
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            
+            // Calculate the sum
+            let sum = num1 + num2;
+            
+            // Display the result
+            document.getElementById('result').textContent = sum;
+        } </script>
+    
+    <h2>Multiply Two Numbers</h2>
+    <input type="number" id="num3" placeholder="Enter first number">
+    <input type="number" id="num4" placeholder="Enter second number">
+    <button onclick="calculateProduct()">Calculate Product</button>
+    <p>Product: <span id="product"></span></p>
+
+    <script>
+    
+		function calculateProduct() {
+		// Get the values from the input fields
+        let num3 = parseFloat(document.getElementById('num3').value);
+        let num4 = parseFloat(document.getElementById('num4').value);
+            
+            // Calculate the product
+            let prod = num3 * num4;
+            
+            // Display the result
+            document.getElementById('product').textContent = prod;
+			} 
+            </script>
+			
+    <h2>Divide Two Numbers</h2>
+    <input type="number" id="num5" placeholder="Enter first number">
+    <input type="number" id="num6" placeholder="Enter second number">
+    <button onclick="calculateQuotient()">Calculate Quotient</button>
+    <p>Quotient: <span id="quotient"></span></p>
+
+    <script>
+		function calculateQuotient() {
+		// Get the values from the input fields
+            let num5 = parseFloat(document.getElementById('num5').value);
+            let num6 = parseFloat(document.getElementById('num6').value);
+            
+            // Calculate the quotient
+            let quotient = num5 / num6;
+            
+            // Display the result
+            document.getElementById('quotient').textContent = quotient;
+			}
+            </script>
+
+    <h2>Minus Two Numbers</h2>
+    <input type="number" id="num7" placeholder="Enter first number">
+    <input type="number" id="num8" placeholder="Enter second number">
+    <button onclick="calculateDifference()">Calculate Difference</button>
+    <p>Difference: <span id="difference"></span></p>
+
+    <script>
+		function calculateDifference() {
+		// Get the values from the input fields
+            let num7 = parseFloat(document.getElementById('num7').value);
+            let num8 = parseFloat(document.getElementById('num8').value);
+            
+            // Calculate the difference
+            let Difference = num7 - num8;
+            
+            // Display the result
+        document.getElementById('difference').textContent = Difference;
+        }
+    </script>
+
+    <h2>Remainder of Two Numbers</h2>
+    <input type="number" id="num9" placeholder="Enter first number">
+    <input type="number" id="num10" placeholder="Enter second number">
+    <button onclick="calculateRemainder()">Calculate Remainder</button>
+    <p>Remainder: <span id="remainder"></span></p>
+
+    <script>
+		function calculateRemainder() {
+		// Get the values from the input fields
+            let num9 = parseFloat(document.getElementById('num9').value);
+            let num10 = parseFloat(document.getElementById('num10').value);
+            
+            // Calculate the difference
+            let Rem = num9 % num10;
+            
+            // Display the result
+        document.getElementById('remainder').textContent = Rem;
+        }
+    </script>
+</body>
+</html>
