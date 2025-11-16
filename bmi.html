@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate BMI</title>
+</head>
+<body>
+    <h2>BMI Calculator</h2>
+    <input type="number" id="weight" placeholder="Please enter your weight">
+    <input type="number" id="feet" placeholder="Please enter your height in feet">
+    <input type="number" id="inch" placeholder="Please enter your height in inches">
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <p>Result: <span id="result"></span></p>
+	<p>Meaning: <span id="meaning"></span></p>
+
+    <script>
+        function calculateBMI() {
+            // Get the values from the input fields
+            let weight = parseFloat(document.getElementById('weight').value);
+            let feet = parseFloat(document.getElementById('feet').value);
+            let inch = parseFloat(document.getElementById('inch').value);
+            
+            // Calculate the BMI
+            let totalInch = (feet * 12) + inch;
+            let BMI = (703 * weight) / (totalInch * totalInch);
+            BMI = BMI.toFixed(1);
+
+            //display result
+            document.getElementById('result').textContent = BMI;
+            
+    let meaning;
+    let greeting ="";
+	if (BMI < 18.5) {
+	greeting = "You are underweight";
+	} else if (BMI >= 18.5 && BMI <= 24.9) {
+	greeting = "You are of perfect weight!";
+    } else {
+	greeting = "You are overweight";
+	}
+    document.getElementById('meaning').textContent = greeting;
+}
+
+		
+    </script>
+</body>
+</html>
