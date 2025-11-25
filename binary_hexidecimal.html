@@ -80,27 +80,45 @@
     <a href="https://halo-hue.github.io/html/Dev.html">About Me</a>
   </nav>
 
-    <h2>Binary to Hexadecimal Converter</h2>
-    <input type="text" id="binaryInput" placeholder="Enter binary number">
-    <button onclick="convertToHex()">Convert</button>
-    <p>Hexadecimal: <span id="hexOutput"></span></p>
+<h2>Binary to Hexadecimal Converter</h2>
+<input type="text" id="binaryInput" placeholder="Enter binary number">
+<button onclick="convertToHex()">Convert</button>
+<p>Hexadecimal: <span id="hexOutput"></span></p>
 
-    <script>
-        function convertToHex() {
-            const binary = document.getElementById("binaryInput").value;
+<h2>ASCII Converter</h2>
+<input type="text" id="asciiInput" placeholder="Enter text">
+<button onclick="convertToASCII()">Convert</button>
+<p>ASCII Codes: <span id="asciiOutput"></span></p>
 
-            // only accept inputs of 1 and 0
-            if (!/^[01]+$/.test(binary)) {
-                alert("Please enter a valid binary number!");
-                return;
-            }
+<h2>Unicode Converter</h2>
+<input type="text" id="unicodeInput" placeholder="Enter text">
+<button onclick="convertToUnicode()">Convert</button>
+<p>Unicode Codes: <span id="unicodeOutput"></span></p>
 
-            // Conversion
-            const decimal = parseInt(binary, 2);
-            const hex = decimal.toString(16).toUpperCase();
+<script>
+  // binary to hex
+  function convertToHex() {
+      const binary = document.getElementById("binaryInput").value;
+      if (!/^[01]+$/.test(binary)) { alert("Enter a valid binary!"); return; }
+      const decimal = parseInt(binary, 2);
+      const hex = decimal.toString(16).toUpperCase();
+      document.getElementById("hexOutput").textContent = hex;
+  }
 
-            document.getElementById("hexOutput").textContent = hex;
-        }
+  // ASCII Converter
+  function convertToASCII() {
+      const text = document.getElementById("asciiInput").value;
+      const ascii = Array.from(text).map(c => c.charCodeAt(0)).join(" ");
+      document.getElementById("asciiOutput").textContent = ascii;
+  }
+
+  // Unicode Converter
+  function convertToUnicode() {
+      const text = document.getElementById("unicodeInput").value;
+      const unicode = Array.from(text).map(c => "\\u"+c.charCodeAt(0).toString(16).padStart(4,'0')).join(" ");
+      document.getElementById("unicodeOutput").textContent = unicode;
+  }
+</script>
     </script>
      <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <script>
@@ -130,3 +148,4 @@
       style="width: 120px; border-radius: 12px;"
 </body>
 </html>
+
