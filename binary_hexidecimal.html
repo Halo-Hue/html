@@ -97,16 +97,16 @@
 <button onclick="convertToUnicode()">Convert</button>
 <p>Result: <span id="unicodeOutput"></span></p>
 
-&1F600; <!-- 😀 Grinning Face -->
-&1F601; <!-- 😁 Beaming Face -->
-&1F602; <!-- 😂 Face with Tears of Joy -->
-&1F603; <!-- 😃 Grinning Face with Big Eyes -->
-&1F604; <!-- 😄 Grinning Face with Smiling Eyes -->
-&1F605; <!-- 😅 Grinning Face with Sweat -->
-&1F606; <!-- 😆 Grinning Squinting Face -->
-&1F609; <!-- 😉 Winking Face -->
-&1F60A; <!-- 😊 Smiling Face with Smiling Eyes -->
-&1F60D; <!-- 😍 Heart Eyes -->
+&#x1F600; <!-- 😀 Grinning Face -->
+&#x1F601; <!-- 😁 Beaming Face -->
+&#x1F602; <!-- 😂 Face with Tears of Joy -->
+&#x1F603; <!-- 😃 Grinning Face with Big Eyes -->
+&#x1F604; <!-- 😄 Grinning Face with Smiling Eyes -->
+&#x1F605; <!-- 😅 Grinning Face with Sweat -->
+&#x1F606; <!-- 😆 Grinning Squinting Face -->
+&#x1F609; <!-- 😉 Winking Face -->
+&#x1F60A; <!-- 😊 Smiling Face with Smiling Eyes -->
+&#x1F60D; <!-- 😍 Heart Eyes -->
 
 <script>
   // binary to hex
@@ -127,11 +127,12 @@
 
   // Unicode Converter
   function convertToUnicode() {
-      const text = document.getElementById("unicodeInput").value;
-      const unicode = Array.from(text).map(c => "\\u"+c.charCodeAt(0).toString(16).padStart(4,'0')).join(" ");
-      document.getElementById("unicodeOutput").textContent = unicode;
+  const code = document.getElementById("unicodeInput").value.trim();
+  if(!code) return;
+  // parse hex and convert
+  const emoji = String.fromCodePoint(parseInt(code, 16));
+  document.getElementById("unicodeOutput").textContent = emoji;
   }
-</script>
     </script>
      <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
   <script>
@@ -161,6 +162,7 @@
       style="width: 120px; border-radius: 12px;"
 </body>
 </html>
+
 
 
 
